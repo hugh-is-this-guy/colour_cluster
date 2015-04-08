@@ -1,11 +1,23 @@
 require 'spec_helper'
 
 describe ColourCluster do
+
   it 'has a version number' do
-    expect(ColourCluster::VERSION).not_to be nil
+  expect(ColourCluster::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+
+  describe '.load(image_path)' do
+    it 'loads an image file and initializes pixels' do
+      pending
+    end
   end
+
+  describe '.cluster(k)' do
+    it 'returns centroids of k identified clusters' do
+      pending
+    end
+  end
+
+
 end
