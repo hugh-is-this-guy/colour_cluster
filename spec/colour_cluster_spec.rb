@@ -9,13 +9,13 @@ describe ColourCluster do
 
   describe '.load(image_path)' do
     it 'loads an image file and initializes pixels' do
-      pending
+      skip
     end
   end
 
   describe '.cluster(k)' do
     it 'returns centroids of k identified clusters' do
-      pending
+      skip
     end
   end
 

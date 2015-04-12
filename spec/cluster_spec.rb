@@ -64,18 +64,17 @@ describe Cluster do
   context 'calculation of optimal centroid for pixels' do
 
     # Pixels form a cube around 2,2,2
-    before (:all) do
-      p1 = Pixel.new(1,1,1)
-      p2 = Pixel.new(1,1,3)
-      p3 = Pixel.new(1,3,1)
-      p4 = Pixel.new(1,3,3)
-
-      p5 = Pixel.new(3,1,1)
-      p6 = Pixel.new(3,1,3)
-      p7 = Pixel.new(3,3,1)
-      p8 = Pixel.new(3,3,3)
-
-      pixels = [p1, p2, p3, p4, p5, p6, p7, p8]
+    before (:each) do
+      pixels = [
+        Pixel.new(10,10,10),
+        Pixel.new(10,10,30),
+        Pixel.new(10,30,10),
+        Pixel.new(10,30,30),
+        Pixel.new(30,10,10),
+        Pixel.new(30,10,30),
+        Pixel.new(30,30,10),
+        Pixel.new(30,30,30)
+      ]
 
       @cluster = Cluster.new
       @cluster.add(pixels)
@@ -83,13 +82,15 @@ describe Cluster do
 
     describe '.centroid()' do
       it 'should calculate and return the optimal centroid' do
+        expect(@cluster.pixels.length).to eq 8
+
         centroid = @cluster.centroid
 
         expect(centroid).to be_instance_of Pixel
 
-        expect(centroid.red).to   eq 2
-        expect(centroid.green).to eq 2
-        expect(centroid.blue).to  eq 2
+        expect(centroid.red).to   eq 20
+        expect(centroid.green).to eq 20
+        expect(centroid.blue).to  eq 20
 
       end
 

@@ -7,8 +7,8 @@ class Cluster
     @centroid = nil
   end
 
-  def add(pixel)
-    (@pixels << pixel).flatten!
+  def add(*new_pixels)
+    (@pixels << new_pixels).flatten!
   end
 
   def empty
